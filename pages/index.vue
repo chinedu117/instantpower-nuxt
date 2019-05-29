@@ -1,6 +1,6 @@
 <template>
-<div>
- <section class="landing-page-background">
+<div  id="main-body">
+ <section class="landing-page-background" v-scroll:#main-body="scrolledBody">
     <v-container class="justify-content-start">
 
      <div class="image-box">
@@ -24,6 +24,12 @@
             
           
             <v-layout wrap class="my-2"><v-flex xs12><h2 class="display-1 "> Buy Electricity in 60 Seconds </h2> </v-flex></v-layout>
+             
+              <v-layout>
+              <v-flex xs12>
+                <v-select outline placeholder="Select your State" :items="states" ></v-select> 
+               </v-flex>
+            </v-layout>
           
           
             <v-layout>
@@ -77,7 +83,7 @@
 
    <section class="second-band"> 
      <v-container> 
-       <v-layout  wrap class="justify-end" >
+       <v-layout  wrap class="justify-end" wrap>
           <v-flex xs12 md4 >
             
               <h2 class="display-3  font-weight-bold pt-2">The most convenient way to buy power</h2>
@@ -102,9 +108,30 @@ import Logo from '~/components/Logo.vue'
 import VuetifyLogo from '~/components/VuetifyLogo.vue'
 
 export default {
+
+  data(){
+     return {
+         offsetTop: 0,
+        states: [ 'Nassarawa','Kogi','Abuja','Edo'],
+     }
+  },
+
+  computed: {
+      scrollTop(){
+          return this.offsetTop
+     }
+  },
   components: {
     Logo,
     VuetifyLogo
+  },
+
+  methods: {
+       scrolledBody(e){
+            alert(e.target.scrollTop)
+           this.offsetTop = e.target.scrollTop
+           
+      }
   }
 }
 </script>
@@ -138,6 +165,11 @@ export default {
 
 }
 
+.second-band {
+   background-color: #fff;
+   min-height: 60vh;
+}
+
 }
 
 .landing-page-background {
@@ -147,11 +179,9 @@ export default {
    position: relative;
 }
 
-
-
 .second-band {
-   background-color: #fff;
-   min-height: 60vh;
+   display: block;
+   
 }
 
 

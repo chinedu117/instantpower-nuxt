@@ -1,6 +1,6 @@
 <template>
-  <v-app dark="false"\
-    v-scroll="scrolled = true"
+  <v-app 
+   
   >
 
 
@@ -8,7 +8,6 @@
       width="100%"
       class="overlay"
       v-model="drawer"
-      :clipped="clipped"
       fixed
       app
       v-if="$vuetify.breakpoint.smAndDown"
@@ -24,41 +23,27 @@
     <v-toolbar
       fixed
       app
-      :class=" scrolled ? 'camouflage' : '' "
-      flat="!scrolled"
+      :class=" scrollTop == 0 ? 'camouflage raise' : 'raise' "
+      :flat="scrollTop == 0 "
     >
-      <v-toolbar-side-icon @click="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>{{ `chevron_${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>web</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>remove</v-icon>
-      </v-btn>
+     
+     
       <v-toolbar-title v-text="title" />
       <v-spacer />
+
       <v-btn
         icon
-        @click.stop="rightDrawer = !rightDrawer"
+        size="36px"
+        v-if="$vuetify.breakpoint.smAndDown"
+        @click.stop="drawer = true"
       >
         <v-icon>menu</v-icon>
       </v-btn>
     </v-toolbar>
-    <v-content>
-    
+    <v-content id="main-body" v-scroll:#main-body="scrolledBody">
+     <div  v-scroll:#main-body="scrolledBody">
         <nuxt />
-
+      </div>
     </v-content>
     <v-navigation-drawer
       v-model="rightDrawer"
@@ -88,6 +73,7 @@
 export default {
   data() {
     return {
+      offsetTop: 0,
       scrolled: false,
       clipped: false,
       drawer: false,
@@ -109,6 +95,23 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js'
     }
+  },
+
+  computed: {
+
+     scrollTop(){
+          return this.offsetTop
+     }
+  },
+
+
+  methods: {
+
+      scrolledBody(e){
+            alert(e.target.scrollTop)
+           this.offsetTop = e.target.scrollTop
+           
+      }
   }
 }
 </script>
@@ -122,4 +125,24 @@ export default {
     opacity: 0.5;
     background-color: black;
 }
+
+ul {
+   display: flex;
+   flex-direction: column;
+   list-style: none;
+   margin: auto;
+}
+
+li {
+     font-weight: 500;
+     text-transform: capitalize;
+     color: black;
+}
+
+.raise {
+    z-index: 10000;
+    display: block;
+    background-color: #fff;
+}
+
 </style>
