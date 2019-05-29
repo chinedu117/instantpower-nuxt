@@ -1,6 +1,6 @@
 <template>
-<div  id="main-body">
- <section class="landing-page-background" v-scroll:#main-body="scrolledBody">
+<div>
+ <section class="landing-page-background">
     <v-container class="justify-content-start">
 
      <div class="image-box">
@@ -69,7 +69,7 @@
           
             <v-layout>
               <v-flex xs12>
-                   <v-btn width="100%"  outline class="mx-0 my-3">Buy Electricity Now<v-icon>user</v-icon></v-btn>
+                   <v-btn width="100%" outline class="mx-0 my-3">Buy Electricity Now<v-icon>chevron_right</v-icon></v-btn>
                </v-flex>
             </v-layout>
           
@@ -81,18 +81,20 @@
 </section>
 
 
-   <section class="second-band"> 
+   
      <v-container> 
-       <v-layout  wrap class="justify-end" wrap>
-          <v-flex xs12 md4 >
+      <section class="second-band"> 
+       <!-- <v-layout row class="justify-end" align="end">
+          <v-flex xs12 md5 > -->
             
-              <h2 class="display-3  font-weight-bold pt-2">The most convenient way to buy power</h2>
+              <h2 class="display-3  font-weight-bold pt-2" style="flex:0.4">The most convenient way <br>to buy power</h2>
 
-          </v-flex>
-       </v-layout>
+          <!-- </v-flex>
+       </v-layout> -->
+        </section>
       </v-container>
 
-   </section>
+  
    
 
  
@@ -104,9 +106,6 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-
 export default {
 
   data(){
@@ -117,21 +116,12 @@ export default {
   },
 
   computed: {
-      scrollTop(){
-          return this.offsetTop
-     }
-  },
-  components: {
-    Logo,
-    VuetifyLogo
+      
   },
 
   methods: {
-       scrolledBody(e){
-            alert(e.target.scrollTop)
-           this.offsetTop = e.target.scrollTop
-           
-      }
+
+       
   }
 }
 </script>
@@ -167,21 +157,34 @@ export default {
 
 .second-band {
    background-color: #fff;
-   min-height: 60vh;
+   min-height: 60vh !important;
+   display: flex !important;
+   flex-direction: row;
+   justify-content: flex-end;
+   align-items: end;
+   width: 100%;
+}
+
+.landing-page-background {
+   background-color: rgba(186,196,209,.31373) !important;
+   z-index: 2 !important;
+   height: 70vh;
+   position: relative;
 }
 
 }
 
 .landing-page-background {
    background-color: rgba(186,196,209,.31373) !important;
-   z-index: 2;
+   z-index: 0 !important;
    height: 70vh;
    position: relative;
 }
 
+
 .second-band {
    display: block;
-   
+   min-height: 90vh;
 }
 
 

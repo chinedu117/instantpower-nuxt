@@ -1,36 +1,37 @@
 <template>
   <v-app 
-   
+
   >
-
-
-    <v-navigation-drawer
-      width="100%"
+    <div
       class="overlay"
-      v-model="drawer"
-      fixed
-      app
-      v-if="$vuetify.breakpoint.smAndDown"
+      v-if="$vuetify.breakpoint.smAndDown && drawer"
     >
+      <div style="width: 100%; display:flex; padding: 5px 5px 0  0;"><v-icon  size="72px"  color="white" @click="drawer = false">close</v-icon></div>
       <ul>
           <li v-for="item in items">
               {{ item.title }}
           </li>
       </ul>
-    </v-navigation-drawer>
+    </div>
 
 
     <v-toolbar
       fixed
       app
-      :class=" scrollTop == 0 ? 'camouflage raise' : 'raise' "
+      :class=" scrollTop == 0 ? 'camouflage ' : 'raise' "
       :flat="scrollTop == 0 "
     >
-     
-     
+      
       <v-toolbar-title v-text="title" />
       <v-spacer />
+       
+       <v-toolbar-items v-if="$vuetify.breakpoint.mdAndUp">
 
+           <v-btn class="main_link" flat v-for="item in items">
+              {{ item.title }}
+          </v-btn>
+
+       </v-toolbar-items>
       <v-btn
         icon
         size="36px"
@@ -40,28 +41,13 @@
         <v-icon>menu</v-icon>
       </v-btn>
     </v-toolbar>
-    <v-content id="main-body" v-scroll:#main-body="scrolledBody">
-     <div  v-scroll:#main-body="scrolledBody">
-        <nuxt />
+    <v-content id="main-body" v-scroll="scrolledBody">
+     <div  >
+        <nuxt  />
       </div>
     </v-content>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-tile @click.native="right = !right">
-          <v-list-tile-action>
-            <v-icon light>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
+    
     <v-footer
-      :fixed="fixed"
       app
     >
       <span>&copy; 2019</span>
@@ -70,6 +56,7 @@
 </template>
 
 <script>
+import Logo from '~/components/Logo.vue'
 export default {
   data() {
     return {
@@ -81,12 +68,17 @@ export default {
       items: [
         {
           icon: 'apps',
-          title: 'Welcome',
+          title: 'Retrieve Token',
           to: '/'
         },
         {
           icon: 'bubble_chart',
-          title: 'Inspire',
+          title: 'FAQ',
+          to: '/inspire'
+        },
+        {
+          icon: 'bubble_chart',
+          title: 'Contact Us',
           to: '/inspire'
         }
       ],
@@ -107,42 +99,72 @@ export default {
 
   methods: {
 
-      scrolledBody(e){
-            alert(e.target.scrollTop)
-           this.offsetTop = e.target.scrollTop
+      scrolledBody(){
+           
+         
+           this.offsetTop = document.documentElement.scrollTop
            
       }
   }
 }
 </script>
 <style>
+
+h1, h2, h3, h4, h5, h6 {
+    color: #615f8e !important;
+}
 .camouflage {
 
     background-color: rgba(186,196,209,.31373) !important;
 }
 
 .overlay {
-    opacity: 0.5;
-    background-color: black;
+    background-color: rgba(0,0,0,.956);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100vh;
+    z-index: 10000000;
+    color: white;
 }
 
 ul {
    display: flex;
-   flex-direction: column;
    list-style: none;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
    margin: auto;
+   width: 100%;
+   height: 70vh;
 }
 
 li {
-     font-weight: 500;
+     font-weight: 700;
      text-transform: capitalize;
-     color: black;
+     opacity: 1 !important;
+     padding: 10px;
+     color: #615f8e;
 }
 
 .raise {
     z-index: 10000;
     display: block;
     background-color: #fff;
+    border-bottom: 2px solid #615f8e !important;
+}
+
+.main_link {
+   color: #615f8e !important;
+   font-weight: 700;
+   font-size: 24px;
+   
+}
+
+.main_link:hover {
+    color: red !important;
+
 }
 
 </style>
