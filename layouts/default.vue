@@ -1,33 +1,31 @@
 <template>
-  <v-app dark>
+  <v-app dark="false"\
+    v-scroll="scrolled = true"
+  >
+
+
     <v-navigation-drawer
+      width="100%"
+      class="overlay"
       v-model="drawer"
-      :mini-variant="miniVariant"
       :clipped="clipped"
       fixed
       app
+      v-if="$vuetify.breakpoint.smAndDown"
     >
-      <v-list>
-        <v-list-tile
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title" />
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
+      <ul>
+          <li v-for="item in items">
+              {{ item.title }}
+          </li>
+      </ul>
     </v-navigation-drawer>
+
+
     <v-toolbar
-      :clipped-left="clipped"
       fixed
       app
+      :class=" scrolled ? 'camouflage' : '' "
+      flat="!scrolled"
     >
       <v-toolbar-side-icon @click="drawer = !drawer" />
       <v-btn
@@ -58,9 +56,9 @@
       </v-btn>
     </v-toolbar>
     <v-content>
-      <v-container>
+    
         <nuxt />
-      </v-container>
+
     </v-content>
     <v-navigation-drawer
       v-model="rightDrawer"
@@ -90,6 +88,7 @@
 export default {
   data() {
     return {
+      scrolled: false,
       clipped: false,
       drawer: false,
       fixed: false,
@@ -113,3 +112,14 @@ export default {
   }
 }
 </script>
+<style>
+.camouflage {
+
+    background-color: rgba(186,196,209,.31373) !important;
+}
+
+.overlay {
+    opacity: 0.5;
+    background-color: black;
+}
+</style>
