@@ -161,7 +161,7 @@ export default {
    display: flex !important;
    flex-direction: row;
    justify-content: flex-end;
-   align-items: end;
+   align-items: flex-end;
    width: 100%;
 }
 
