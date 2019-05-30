@@ -6,7 +6,7 @@
       class="overlay"
       v-if="$vuetify.breakpoint.smAndDown && drawer"
     >
-      <div style="width: 100%; display:flex; padding: 5px 5px 0  0;"><v-icon  size="72px"  color="white" @click="drawer = false">close</v-icon></div>
+      <div style="width: 100%; display:flex; justify-content: flex-end; padding: 5px 5px 0  0;"><v-icon  size="45px"  style="color: #615f8e" @click="drawer = false">close</v-icon></div>
       <ul>
           <li v-for="(item,index) in items"
            :key="index"
@@ -41,7 +41,7 @@
         v-if="$vuetify.breakpoint.smAndDown"
         @click.stop="drawer = true"
       >
-        <v-icon>menu</v-icon>
+        <v-icon size="45px" color="red">menu</v-icon>
       </v-btn>
     </v-toolbar>
     <v-content id="main-body" v-scroll="scrolledBody">
@@ -176,7 +176,8 @@ li {
 .footer {
    background-color: #615f8e !important;
    color: #fff important;
-   padding: 100px 0;
+   padding: 100px 10px;
+   text-align: center;
 }
 
 </style>

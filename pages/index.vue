@@ -3,12 +3,12 @@
  <section class="landing-page-background">
     <v-container class="justify-content-start">
 
-     <div class="image-box hidden-md-and-down ma-0 pa-0">
-        <img src="https://instantpower.ng/_nuxt/img/3b29f4f.png" class="ma-0 pa-0">
-     </div>
-     <v-layout class="mt-2">
+    
+      <img src="https://instantpower.ng/_nuxt/img/3b29f4f.png" class="image-box hidden-md-and-down ma-0 pa-0">
+  
+     <v-layout class="my-2">
         <v-flex xs12 md6>
-            <h1 class="display-2 font-weight-bold">Reliable, Convenient, Electricity for all.</h1>   
+            <h1 class="display-2 font-weight-bold heading-mobile">Reliable, Convenient, Electricity for all.</h1>   
         </v-flex>
      </v-layout>
 
@@ -69,7 +69,7 @@
           
             <v-layout>
               <v-flex xs12>
-                   <v-btn width="100%" outline class="mx-0 my-3">Buy Electricity Now<v-icon>chevron_right</v-icon></v-btn>
+                   <v-btn style="width: 100%; padding: 5px 0; border-width: 2px " outline class="py-3 mx-0 my-3">Buy Electricity Now<v-icon>chevron_right</v-icon></v-btn>
                </v-flex>
             </v-layout>
           
@@ -86,7 +86,7 @@
       <section class="second-band">
        <v-container>  
          <v-layout row class="justify-end" align="end">
-            <v-flex xs12 md5 >
+            <v-flex xs12 sm12 md5 >
               
                 <h2 class="display-3 advert font-weight-bold">The most convenient way <br>to buy power</h2>
 
@@ -129,9 +129,15 @@ export default {
 <style>
 .card_custom {
    border-radius: 7px;
+   width: 80%;
+   margin: 0 auto;
 
 }
 
+.heading-mobile {
+   width: 80%;
+   margin: 0 auto;
+} 
 
  .image-box {
    display: hidden;
@@ -139,11 +145,17 @@ export default {
 }
 
 @media screen and (min-width: 1200px){
-   .card_custom {
-      width: 600px;
 
+  .heading-mobile {
+   width: inherit !important;
+   margin: 0 0 !important;
+} 
+   .card_custom {
+      width: 600px !important;
+      margin: 0 0 !important;
   }
   
+
   
 
   .image-box{
@@ -174,6 +186,11 @@ export default {
    position: relative;
 }
 
+.advert {
+    width: inherit !important;
+    margin: 0 0 !important;
+  }
+
 }
 
 .landing-page-background {
@@ -185,7 +202,7 @@ export default {
 
 
 .second-band {
-   padding-top: 450px;
+   padding-top: 500px;
    border-bottom: 2px solid rgba(236,0,61,.3);
    background: url('https://instantpower.ng/filler-bg.png') 50%;
    background-size: cover;
