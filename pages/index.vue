@@ -138,16 +138,13 @@ export default {
 
 }
 
-@media screen and (min-width: 900px){
+@media screen and (min-width: 1200px){
    .card_custom {
       width: 600px;
 
   }
   
-  .advert {
-    text-shadow: 2px 2px 1px rgba(236,0,61,.12);
-    color: black !important;
-  }
+  
 
   .image-box{
    display: block;
@@ -188,12 +185,17 @@ export default {
 
 
 .second-band {
-   min-height: 90vh;
+   padding-top: 450px;
    border-bottom: 2px solid rgba(236,0,61,.3);
    background: url('https://instantpower.ng/filler-bg.png') 50%;
    background-size: cover;
-    min-height: 60vh;
+   min-height: 60vh;
+  
 }
 
+.advert {
+    text-shadow: 2px 2px 1px rgba(236,0,61,.12);
+    color: black !important;
+  }
 
 </style>

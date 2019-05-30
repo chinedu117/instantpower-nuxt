@@ -155,7 +155,7 @@ li {
 }
 
 .raise {
-    z-index: 1000000;
+    z-index: 1000000 !important;
     display: block;
     background-color: #fff;
     border-bottom: 2px solid #615f8e !important;
