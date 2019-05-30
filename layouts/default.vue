@@ -8,7 +8,9 @@
     >
       <div style="width: 100%; display:flex; padding: 5px 5px 0  0;"><v-icon  size="72px"  color="white" @click="drawer = false">close</v-icon></div>
       <ul>
-          <li v-for="item in items">
+          <li v-for="(item,index) in items"
+           :key="index"
+          >
               {{ item.title }}
           </li>
       </ul>
@@ -27,7 +29,8 @@
        
        <v-toolbar-items v-if="$vuetify.breakpoint.mdAndUp">
 
-           <v-btn class="main_link" flat v-for="item in items">
+           <v-btn class="main_link" flat v-for="(item,index) in items"
+           :key="index">
               {{ item.title }}
           </v-btn>
 

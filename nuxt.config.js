@@ -19,8 +19,15 @@ module.exports = {
       {
         rel: 'stylesheet',
         href:
+          "https://fonts.googleapis.com/css?family=Poppins:400,600|Work+Sans:900"
+      },
+      {
+        rel: 'stylesheet',
+        href:
           'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
-      }
+      },
+       
+        
     ]
   },
 
@@ -33,7 +40,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '~/assets/style/app.styl'
+    '~/assets/style/main.styl'
   ],
 
   /*
