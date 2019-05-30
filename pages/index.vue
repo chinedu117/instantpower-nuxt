@@ -23,7 +23,7 @@
 
             
           
-            <v-layout wrap class="my-2"><v-flex xs12><h2 class="display-1 "> Buy Electricity in 60 Seconds </h2> </v-flex></v-layout>
+            <v-layout wrap class="my-2"><v-flex xs12><h2 class="display-1 text-align-center"> Buy Electricity in 60 Seconds </h2> </v-flex></v-layout>
              
               <v-layout>
               <v-flex xs12>
@@ -129,13 +129,13 @@ export default {
 <style>
 .card_custom {
    border-radius: 7px;
-   width: 80%;
+   
    margin: 0 auto;
 
 }
 
 .heading-mobile {
-   width: 80%;
+  
    margin: 0 auto;
 } 
 
