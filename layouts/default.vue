@@ -52,8 +52,9 @@
     
     <v-footer
       app
+      class="footer"
     >
-      <span>&copy; 2019</span>
+      <span>©2019 InstantPower, DataPlus Interactive, all rights reserved.</span>
     </v-footer>
   </v-app>
 </template>
@@ -170,6 +171,13 @@ li {
 .main_link:hover {
     color: red !important;
 
+}
+
+.footer {
+   background-color: black
+   color: white;
+   padding: 100px 0;
+   margin: 0 auto;
 }
 
 </style>
