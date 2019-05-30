@@ -40,7 +40,8 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '~/assets/style/main.styl'
+    '~/assets/style/app.styl',
+    '~/assets/style/app.styl'
   ],
 
   /*

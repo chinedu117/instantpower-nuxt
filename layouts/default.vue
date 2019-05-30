@@ -23,8 +23,8 @@
       :class=" scrollTop == 0 ? 'camouflage ' : 'raise' "
       :flat="scrollTop == 0 "
     >
+      <logo/>
       
-      <v-toolbar-title v-text="title" />
       <v-spacer />
        
        <v-toolbar-items v-if="$vuetify.breakpoint.mdAndUp">
@@ -91,6 +91,8 @@ export default {
       title: 'Vuetify.js'
     }
   },
+  
+  components: { Logo },
 
   computed: {
 
