@@ -51,10 +51,9 @@
     </v-content>
     
     <v-footer
-      app
-      class="footer"
+     class="footer"
     >
-      <span>©2019 InstantPower, DataPlus Interactive, all rights reserved.</span>
+      <div class="mx-auto"><span style="color:#fff; font-style:italics">©2019 InstantPower, DataPlus Interactive, all rights reserved.</span></div>
     </v-footer>
   </v-app>
 </template>
@@ -118,6 +117,7 @@ export default {
 
 h1, h2, h3, h4, h5, h6 {
     color: #615f8e !important;
+    font-family: 'Poppins', sans-serif !important;
 }
 .camouflage {
 
@@ -155,7 +155,7 @@ li {
 }
 
 .raise {
-    z-index: 10000;
+    z-index: 1000000;
     display: block;
     background-color: #fff;
     border-bottom: 2px solid #615f8e !important;
@@ -174,10 +174,9 @@ li {
 }
 
 .footer {
-   background-color: black
-   color: white;
+   background-color: #615f8e !important;
+   color: #fff important;
    padding: 100px 0;
-   margin: 0 auto;
 }
 
 </style>

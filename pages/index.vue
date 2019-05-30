@@ -8,7 +8,7 @@
      </div>
      <v-layout class="mt-2">
         <v-flex xs12 md6>
-            <h1 class="display-3 font-weight-bold">Reliable, Convenient, Electricity for all.</h1>   
+            <h1 class="display-2 font-weight-bold">Reliable, Convenient, Electricity for all.</h1>   
         </v-flex>
      </v-layout>
 
