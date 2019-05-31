@@ -69,7 +69,7 @@
           
             <v-layout>
               <v-flex xs12>
-                   <v-btn style="width: 100%; padding: 5px 0; border-width: 2px " outline class="py-3 mx-0 my-3">Buy Electricity Now<v-icon>chevron_right</v-icon></v-btn>
+                   <v-btn style="width: 100%;  border-width: 2px " outline class="py-3 mx-0 my-3">Buy Electricity Now<v-icon>chevron_right</v-icon></v-btn>
                </v-flex>
             </v-layout>
           
